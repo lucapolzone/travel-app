@@ -11,378 +11,407 @@
         juneDays: [
           {
             dayNumber: 1,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 2,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 3,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 4,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 5,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 6,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 7,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 8,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 9,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 10,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 11,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 12,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 13,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 14,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 15,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 16,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 17,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 18,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 19,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 20,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 21,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 22,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 23,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 24,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 25,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 26,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 27,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 28,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 29,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 30,
-            dayName: "SUN",
+            dayName: "DOM",
           },
         ],
 
         julyDays: [
           {
             dayNumber: 1,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 2,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 3,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 4,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 5,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 6,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 7,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 8,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 9,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 10,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 11,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 12,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 13,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 14,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 15,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 16,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 17,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 18,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 19,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 20,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 21,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 22,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 23,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 24,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 25,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 26,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 27,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 28,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 29,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 30,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 31,
-            dayName: "WED",
+            dayName: "MER",
           },
         ],
 
         augustDays: [
           {
             dayNumber: 1,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 2,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 3,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 4,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 5,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 6,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 7,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 8,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 9,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 10,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 11,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 12,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 13,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 14,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 15,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 16,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 17,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 18,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 19,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 20,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 21,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 22,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 23,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 24,
-            dayName: "SAT",
+            dayName: "SAB",
           },
           {
             dayNumber: 25,
-            dayName: "SUN",
+            dayName: "DOM",
           },
           {
             dayNumber: 26,
-            dayName: "MON",
+            dayName: "LUN",
           },
           {
             dayNumber: 27,
-            dayName: "TUE",
+            dayName: "MAR",
           },
           {
             dayNumber: 28,
-            dayName: "WED",
+            dayName: "MER",
           },
           {
             dayNumber: 29,
-            dayName: "THU",
+            dayName: "GIO",
           },
           {
             dayNumber: 30,
-            dayName: "FRI",
+            dayName: "VEN",
           },
           {
             dayNumber: 31,
-            dayName: "SAT",
+            dayName: "SAB",
           },
+        ],
+
+        locations: [
+          {
+            date: "02/06/2024",
+            name: "Pitigliano",
+            description: "molto bella, sembra un presepe"
+          },
+          {
+            date: "03/06/2024",
+            name: "Manciano",
+            description: "ci siamo stati di sera, c'è una fontana affascinante"
+          },
+          {
+            date: "04/06/2024",
+            name: "Saturnia",
+            description: "ho scoperto che la carta non autorizzava il prelievo, bella la cascata del mulino, le terme spa sono piene di tafani"
+          },
+          {
+            date: "05/06/2024",
+            name: "Orbetello",
+            description: "magnifica nelle sere d'estate, tramonti incredibili, sembra di stare in africa"
+          },
+          {
+            date: "06/06/2024",
+            name: "Porto Ercole",
+            description: "bei muraglioni, da l'idea di una forza erculea"
+          },
+                                                  
         ]
 
       }
@@ -397,7 +426,7 @@
 <template>
     <h1>Travel App</h1>
 
-    <app-travel-stages />
+    <app-travel-stages :locations="locations"/>
     <app-calendar :juneDays="juneDays" :julyDays="julyDays" :augustDays="augustDays" />
     <app-map />
   
