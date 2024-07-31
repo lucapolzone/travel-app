@@ -1,5 +1,5 @@
 <script>
-  import AppTravelStages from './components/AppTravelStages.vue';
+  import AppLocations from './components/AppLocations.vue';
   import AppCalendar from './components/AppCalendar.vue';
   import AppMap from './components/AppMap.vue';
 
@@ -417,7 +417,7 @@
       }
     },
 
-    components: { AppTravelStages, AppCalendar, AppMap}
+    components: { AppLocations, AppCalendar, AppMap}
 
   }
   
@@ -426,7 +426,7 @@
 <template>
     <h1>Travel App</h1>
 
-    <app-travel-stages :locations="locations"/>
+    <app-locations :locations="locations"/>
     <app-calendar :juneDays="juneDays" :julyDays="julyDays" :augustDays="augustDays" />
     <app-map />
   
