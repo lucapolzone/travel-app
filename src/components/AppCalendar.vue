@@ -4,6 +4,10 @@
       return {
         // activeIndex: 0,
       }
+    },
+
+    props: {
+      januaryDays: Array,
     }
   }
   
@@ -14,41 +18,18 @@
     <h2 class="mt-5 text-start">Calendario</h2>
 
     <div class="row gy-2">
-      <div class="col-4">
-        <div class="card m-0">
-          Square
+
+      <div v-for="januaryDay in januaryDays" class="col">
+        <div class="card">
+          <p>
+            {{ januaryDay.dayNumber }}
+          </p>
+          <p>
+            {{ januaryDay.dayName }}
+          </p>
         </div>
       </div>
 
-      <div class="col-4">
-        <div class="card m-0">
-          Square
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card m-0">
-          Square
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card m-0">
-          Square
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card m-0">
-          Square
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class="card m-0">
-          Square
-        </div>
-      </div>
     </div>          
   </div>
 
