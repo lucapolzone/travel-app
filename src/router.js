@@ -1,10 +1,7 @@
-/* 
-
 import { createRouter, createWebHistory } from "vue-router";
 
-import AppLocations from "./components/AppLocations.vue";
-import AppCalendar from "./components/AppCalendar.vue";
-import AppMap from "./components/AppMap.vue";
+import Home from './components/Home.vue'; 
+import NewLocation from './components/NewLocation.vue'; 
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,22 +9,16 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: AppLocations,
+      component: Home,
     },
 
     {
-      path: "/apartments-search",
-      name: "apartments.search",
-      component: AppSearch,
+      path: "/new-location",
+      name: "new-location",
+      component: NewLocation,
     },
 
-    {
-      path: "/apartment/:slug",
-      name: "apartment.show",
-      component: AppShow,
-    },
   ],
 });
 
 export { router };
-*/
