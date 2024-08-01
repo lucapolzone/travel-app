@@ -1,17 +1,16 @@
-// Funzione setter: salva locations[] nel localStorage
-export function setLocations(locations) {
-  localStorage.setItem('locations', JSON.stringify(locations));
-};
-
 // Funzione getter: prende locations[] da localStorage
 export function getLocations() {
   const localValue = localStorage.getItem('locations');
   return localValue ? JSON.parse(localValue) : [];
 };
 
+// Funzione setter: salva locations[] nel localStorage
+export function setLocations(locations) {
+  localStorage.setItem('locations', JSON.stringify(locations));
+};
 
 
-// Dopo aggiungo una nuova location al localStorage
+// Aggiungo una nuova location al localStorage
 export function addLocation(newLocation) {
 
   //prendo locations[]
