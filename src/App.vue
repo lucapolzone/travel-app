@@ -8,10 +8,19 @@
     data() {
       return {
         // activeIndex: 0,
+        calendarController: {
+          month: "06",
+          month: "07",
+          month: "08",
+          year: 2024
+        },
+
         juneDays: [
           {
             dayNumber: 1,
             dayName: "SAB",
+            month: "calendarController.month",
+            year: "calendarController.year"
           },
           {
             dayNumber: 2,
@@ -412,6 +421,33 @@
             description: "bei muraglioni, da l'idea di una forza erculea"
           },
                                                   
+        ],
+
+        locations2: [
+          {
+            day02062024: [
+              {
+                name: "Pitigliano",
+                description: "molto bella, sembra un presepe"
+              },
+              {
+                name: "Pitigliano",
+                description: "molto bella, sembra un presepe"
+              },
+            ],
+          },
+          {
+            day03062024: [
+              {
+                name: "Manciano",
+                description: "ci siamo stati di sera, c'è una fontana affascinante"
+              },
+              {
+                name: "Pitigliano",
+                description: "molto bella, sembra un presepe"
+              },
+            ],
+          }
         ]
 
       }

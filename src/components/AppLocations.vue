@@ -23,9 +23,14 @@
           <table class="table table-bordered mt-3">
             <thead class="table-primary">
               <tr>
+                <th colspan="5">01/06/2024</th>
+              </tr>
+              <tr>
                 <th scope="col">Data</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrizione</th>
+                <th scope="col">Modifica</th>
+                <th scope="col">Cancella</th>
               </tr>
             </thead>
             <tbody>
@@ -33,6 +38,16 @@
                 <td>{{ locations[0].date }}</td>
                 <td>{{ locations[0].name }}</td>
                 <td>{{ locations[0].description }}</td>
+                <td>
+                  <a href="#" class="btn btn-warning">
+                    <i class="fa-solid fa-pen"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="btn btn-danger">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </a>
+                </td>
               </tr>
             </tbody>
           </table>

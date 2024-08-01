@@ -90,7 +90,15 @@
     width: 125px;
     aspect-ratio: 1;
     // height: 125px;
+    background-color: #999;
+
+    .active {
+      background-color: rgb(255, 52, 52);
+      color: #ffffff;
+    }
   }
+
+
 
   .carousel-control-prev, .carousel-control-next {
     width: 32px;
