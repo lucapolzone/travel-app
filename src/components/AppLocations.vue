@@ -17,6 +17,45 @@
   <div class="container">
     <h2 class="mt-5">Tappa viaggio</h2>
 
+    <table class="table table-bordered mt-3">
+      <thead class="table-primary">
+        <tr>
+          <th colspan="5">01/06/2024</th>
+        </tr>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Modifica</th>
+          <th scope="col">Cancella</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <!-- data che arriva dallo storage -->
+          </td>
+          <td>
+            <!-- nome che arriva dallo storage -->
+          </td>
+          <td>
+            <!-- descrizione che arriva dallo storage -->
+          </td>
+          <td>
+            <a href="#" class="btn btn-warning">
+              <i class="fa-solid fa-pen"></i>
+            </a>
+          </td>
+          <td>
+            <a href="#" class="btn btn-danger">
+              <i class="fa-solid fa-trash-can"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- 
     <div id="carouselLocations" class="carousel carousel-dark slide">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -98,6 +137,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+      -->
     
     
   </div>
