@@ -4,8 +4,6 @@
   import AppCalendar from './AppCalendar.vue';
   import AppMap from './AppMap.vue';
 
-  // import { fetchLocations, saveLocations } from './storage';
-
   export default {
     data() {
       return {
@@ -425,18 +423,6 @@
                                                   
         ],
 
-        // locations: fetchLocations(),
-        /*
-         
-        watch: {
-          locations: {
-            handler(newLocations) {
-              saveLocations(newLocations);
-            },
-            deep: true
-          }
-        },
-        */
        
         locations2: [
           {

@@ -1,8 +1,4 @@
 <script>
-  import AppNavElements from './components/AppNavElements.vue';
-
-
-  // import { fetchLocations, saveLocations } from './storage';
 
   export default {
     data() {
@@ -10,8 +6,6 @@
         // activeIndex: 0,
       }
     },
-
-    components: { AppNavElements }
 
   }
   

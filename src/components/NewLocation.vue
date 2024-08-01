@@ -1,14 +1,45 @@
 <script>
-  export default {
-    data() {
-      return {
-        // activeIndex: 0,
 
-      }
-    }
+//importo funzione addLocation
+import { addLocation } from '../db/storage.js';
+
+export default {
+  data() {
+    return {
+      date: '',
+      name: '',
+      description: ''
+    };
+  },
+  methods: {
+    sendLocationData(event) {
+      event.preventDefault(); // Previene il refresh predefinito del form
+
+      // Crea un oggetto location
+      const newLocation = {
+        date: this.date,
+        name: this.name,
+        description: this.description
+      };
+
+      // Aggiungi la nuova location al localStorage
+      addLocation(newLocation);
+
+      // Reindirizza alla pagina principale
+      this.$router.push('/');
+    },
+
+  },
+
+  /*
+  mounted() {
+    console.log(this.$router);
   }
-  
+  */
+}
 </script>
+
+
 <template>
   <div class="container">
     <router-link to="/">
@@ -18,22 +49,31 @@
     </router-link>
 
     <h2 class="text-center">Aggiungi tappa</h2>
-      <form>
-        <div class="mb-3">
-          <label for="dateLocation" class="form-label">Data tappa</label>
-          <input type="text" placeholder="01/06/2024" class="form-control" id="dateLocation" aria-describedby="dateHelp">
-        </div>
-        <div class="mb-3">
-          <label for="nameLocation" class="form-label">Tappa</label>
-          <input type="text" class="form-control" id="nameLocation">
-        </div>
-        <div class="mb-3">
-          <label for="descriptionLocation" class="form-label">Descrizione</label>
-          <textarea class="form-control" id="descriptionLocation" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-success">INVIA</button>
-      </form>
+    
+    <form @submit="sendLocationData">
+      <div class="mb-3">
+        <label for="dateLocation" class="form-label">Data tappa</label>
+        <input v-model="date" type="text" class="form-control" id="dateLocation" aria-describedby="dateHelp">
+      </div>
+      <div class="mb-3">
+        <label for="nameLocation" class="form-label">Tappa</label>
+        <input v-model="name" type="text" class="form-control" id="nameLocation">
+      </div>
+      <div class="mb-3">
+        <label for="descriptionLocation" class="form-label">Descrizione</label>
+        <textarea v-model="description" class="form-control" id="descriptionLocation" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn btn-success me-5">Salva</button>
+      <button type="" class="btn btn-primary me-4">
+        <i class="fa-solid fa-plus"></i>
+        Salva e nuovo 
+      </button>
+      <button type="reset" class="btn btn-warning">Reset</button>
+    </form>
   </div>
 </template>
+
 <style lang="scss" scoped>
 </style>
+
+
