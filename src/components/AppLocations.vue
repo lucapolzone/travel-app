@@ -12,7 +12,8 @@ export default {
   },
 
   created() {
-    // Carica le locations dal localStorage quando il componente viene creato
+    // Il data locations[] viene associato a getLocations() dello storage
+    // Quando il componente viene creato, getLocations (che equivale a locations[...]) viene eseguita
     this.locations = getLocations();
   },
 
