@@ -12,9 +12,8 @@ export default {
     };
   },
   methods: {
-    sendLocationData(event) {
-      event.preventDefault(); // Previene il refresh predefinito del form
-
+    pushLocationData() {
+      
       // Crea un oggetto location
       const newLocation = {
         date: this.date,
@@ -25,9 +24,26 @@ export default {
       // Aggiungi la nuova location al localStorage
       addLocation(newLocation);
 
+    },
+
+    sendLocationData() {
+
+      this.pushLocationData();
+      
       // Reindirizza alla pagina principale
       this.$router.push('/');
     },
+
+    saveAndNewLocation(event) {
+      event.preventDefault(); // Previene il refresh predefinito del form
+
+      this.pushLocationData();
+
+      // Resetta i campi del form
+      this.date = '';
+      this.name = '';
+      this.description = '';
+    }
 
   },
 
@@ -64,7 +80,7 @@ export default {
         <textarea v-model="description" class="form-control" id="descriptionLocation" rows="4"></textarea>
       </div>
       <button type="submit" class="btn btn-success me-5">Salva</button>
-      <button type="" class="btn btn-primary me-4">
+      <button @click="saveAndNewLocation" class="btn btn-primary me-4">
         <i class="fa-solid fa-plus"></i>
         Salva e nuovo 
       </button>
