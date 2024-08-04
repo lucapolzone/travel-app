@@ -10,17 +10,18 @@ export default {
   methods: {
 
   },
+  
+  props: {
+    locations2: Array
+  },
 
   created() {
     // Il data locations[] viene associato a getLocations() dello storage
-    // Quando il componente viene creato, getLocations (che equivale a locations[...]) viene eseguita
     this.locations = getLocations();
   },
 
   mounted(){
-    //non fare console.log di setLocations() altrimenti ti bugga il JSON del localStore
-    const storedLocations = getLocations();
-    console.log(storedLocations);
+    // console.log(this.locations);
   }
 }
 
@@ -34,10 +35,10 @@ export default {
 
     <h2 class="mt-5">Tappe viaggio</h2>
 
-    <table class="table table-bordered" v-for="location in locations">
+    <table class="table table-bordered" v-for="locationGroup in locations">
       <thead class="table-primary">
         <tr>
-          <th scope="col" colspan="3" class="text-center">{{ location.date }}</th>
+          <th scope="col" colspan="3" class="text-center">{{ locationGroup.date }}</th>
         </tr>
         <tr>
           <th scope="col" style="width: 200px;">Nome</th>
@@ -45,9 +46,9 @@ export default {
         </tr>
       </thead>      
       <tbody>
-        <tr>
-          <td>{{ location.name }}</td>
-          <td>{{ location.description }}</td>
+        <tr v-for="stage in locationGroup.stages">
+          <td>{{ stage.name }}</td>
+          <td>{{ stage.description }}</td>
         </tr>
       </tbody>
     </table>

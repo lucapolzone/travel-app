@@ -11,11 +11,14 @@ const router = createRouter({
       name: "home",
       component: Home,
     },
-
     {
-      path: "/new-location",
-      name: "new-location",
+      path: "/new-location/:slug",
+      name: "new-location-slug",
       component: NewLocation,
+      //route è l'oggetto rotta
+      //params è una proprietà dell'oggetto. Contiene i parametri dinamici
+      //slug è la definizione del parametro dinamico 01-06, 02-06, ecc 
+      props: route => ({ slug: route.params.slug })
     },
 
   ],

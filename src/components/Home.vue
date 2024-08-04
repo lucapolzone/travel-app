@@ -8,135 +8,165 @@
     data() {
       return {
         // activeIndex: 0,
-        calendarController: {
-          month: "06",
-          month: "07",
-          month: "08",
-          year: 2024
-        },
+
+        // calendarController: {
+        //   juneMonth: "06",
+        //   julyMonth: "07",
+        //   augustMonth: "08",
+        //   year: "2024"
+        // },
 
         juneDays: [
           {
-            dayNumber: 1,
+            dayNumber: "01",
             dayName: "SAB",
-            month: "calendarController.month",
-            year: "calendarController.year"
+            month: "06",
           },
           {
-            dayNumber: 2,
+            dayNumber: "02",
             dayName: "DOM",
+            month: "06",
           },
           {
-            dayNumber: 3,
+            dayNumber: "03",
             dayName: "LUN",
+            month: "06",
           },
           {
-            dayNumber: 4,
+            dayNumber: "04",
             dayName: "MAR",
+            month: "06",
           },
           {
-            dayNumber: 5,
+            dayNumber: "05",
             dayName: "MER",
+            month: "06",
           },
           {
-            dayNumber: 6,
+            dayNumber: "06",
             dayName: "GIO",
+            month: "06",
           },
           {
-            dayNumber: 7,
+            dayNumber: "07",
             dayName: "VEN",
+            month: "06",
           },
           {
-            dayNumber: 8,
+            dayNumber: "08",
             dayName: "SAB",
+            month: "06",
           },
           {
-            dayNumber: 9,
+            dayNumber: "09",
             dayName: "DOM",
+            month: "06",
           },
           {
-            dayNumber: 10,
+            dayNumber: "10",
             dayName: "LUN",
+            month: "06",
           },
           {
-            dayNumber: 11,
+            dayNumber: "11",
             dayName: "MAR",
+            month: "06",
           },
           {
-            dayNumber: 12,
+            dayNumber: "12",
             dayName: "MER",
+            month: "06",
           },
           {
-            dayNumber: 13,
+            dayNumber: "13",
             dayName: "GIO",
+            month: "06",
           },
           {
-            dayNumber: 14,
+            dayNumber: "14",
             dayName: "VEN",
+            month: "06",
           },
           {
-            dayNumber: 15,
+            dayNumber: "15",
             dayName: "SAB",
+            month: "06",
           },
           {
-            dayNumber: 16,
+            dayNumber: "16",
             dayName: "DOM",
+            month: "06",
           },
           {
-            dayNumber: 17,
+            dayNumber: "17",
             dayName: "LUN",
+            month: "06",
           },
           {
-            dayNumber: 18,
+            dayNumber: "18",
             dayName: "MAR",
+            month: "06",
           },
           {
-            dayNumber: 19,
+            dayNumber: "19",
             dayName: "MER",
+            month: "06",
+            year: 2024
           },
           {
-            dayNumber: 20,
+            dayNumber: "20",
             dayName: "GIO",
+            month: "06",
           },
           {
-            dayNumber: 21,
+            dayNumber: "21",
             dayName: "VEN",
+            month: "06",
           },
           {
-            dayNumber: 22,
+            dayNumber: "22",
             dayName: "SAB",
+            month: "06",
           },
           {
-            dayNumber: 23,
+            dayNumber: "23",
             dayName: "DOM",
+            month: "06",
           },
           {
-            dayNumber: 24,
+            dayNumber: "24",
             dayName: "LUN",
+            month: "06",
           },
           {
-            dayNumber: 25,
+            dayNumber: "25",
             dayName: "MAR",
+            month: "06",
           },
           {
-            dayNumber: 26,
+            dayNumber: "26",
             dayName: "MER",
+            month: "06",
           },
           {
-            dayNumber: 27,
+            dayNumber: "27",
             dayName: "GIO",
+            month: "06",
           },
           {
-            dayNumber: 28,
+            dayNumber: "28",
             dayName: "VEN",
+            month: "06",
           },
           {
-            dayNumber: 29,
+            dayNumber: "29",
             dayName: "SAB",
+            month: "06",
           },
           {
-            dayNumber: 30,
+            dayNumber: "30",
             dayName: "DOM",
+            month: "06",
           },
         ],
 
@@ -394,63 +424,64 @@
           },
         ],
         
-        locations: [
-          {
-            date: "02/06/2024",
-            name: "Pitigliano",
-            description: "molto bella, sembra un presepe"
-          },
-          {
-            date: "03/06/2024",
-            name: "Manciano",
-            description: "ci siamo stati di sera, c'è una fontana affascinante"
-          },
-          {
-            date: "04/06/2024",
-            name: "Saturnia",
-            description: "ho scoperto che la carta non autorizzava il prelievo, bella la cascata del mulino, le terme spa sono piene di tafani"
-          },
-          {
-            date: "05/06/2024",
-            name: "Orbetello",
-            description: "magnifica nelle sere d'estate, tramonti incredibili, sembra di stare in africa"
-          },
-          {
-            date: "06/06/2024",
-            name: "Porto Ercole",
-            description: "bei muraglioni, da l'idea di una forza erculea"
-          },
-                                                  
-        ],
-
-       
         locations2: [
           {
-            day02062024: [
+            date: "02/06/2024",
+            stages: [
               {
                 name: "Pitigliano",
                 description: "molto bella, sembra un presepe"
               },
-              {
-                name: "Pitigliano",
-                description: "molto bella, sembra un presepe"
-              },
-            ],
-          },
-          {
-            day03062024: [
               {
                 name: "Manciano",
                 description: "ci siamo stati di sera, c'è una fontana affascinante"
               },
               {
-                name: "Pitigliano",
-                description: "molto bella, sembra un presepe"
+                name: "Orbetello",
+                description: "magnifica nelle sere d'estate, tramonti incredibili, sembra di stare in africa"
               },
             ],
-          }
+          },
+          {
+            date: "03/06/2024",
+            stages: [
+              {
+                name: "Saturnia",
+                description: "ho scoperto che la carta non autorizzava il prelievo, bella la cascata del mulino, le terme spa sono piene di tafani"
+              },
+              {
+                name: "Porto Ercole",
+                description: "bei muraglioni, da l'idea di una forza erculea"
+              },
+            ],
+          },
+          {
+            date: "05/06/2024",
+            stages: [
+              {
+                name: "Genova",
+                description: "c'è il porto"
+              },
+              {
+                name: "Milano",
+                description: "c'è la nebbia"
+              },
+            ],
+          },
+          {
+            date: "04/06/2024",
+            stages: [
+              {
+                name: "Pisa",
+                description: "c'è la torre"
+              },
+              {
+                name: "Firenza",
+                description: "culla del rinascimento"
+              },
+            ],
+          },
         ]
-
       }
     },
 
@@ -463,7 +494,7 @@
 <template>
   
     <app-nav-elements />
-    <app-locations :locations="locations" />
+    <app-locations />
     <app-calendar :juneDays="juneDays" :julyDays="julyDays" :augustDays="augustDays" />
     <app-map />
   

@@ -1,8 +1,9 @@
 <script>
+import { getLocations } from '../db/storage.js';
+
   export default {
     data() {
       return {
-        // activeIndex: 0,
       }
     },
 
@@ -10,8 +11,21 @@
       juneDays: Array,
       julyDays: Array,
       augustDays: Array,
-    }
+    },
+   
+    methods: {
+    goToLocation(dayNumber, month) {
+      const slug = `${dayNumber}-${month}`;
+      this.$router.push(`/new-location/${slug}`);
+    },
+
+
+  },
+  mounted() {
+    // Ottieni le date delle tappe aggiunte da localStorage o da una fonte di dati
+    getLocations();
   }
+}
   
 </script>
 <template>
@@ -24,14 +38,10 @@
         <div class="carousel-item active">
           <div class="row gy-2">
             <h3>Giugno</h3>
-            <div v-for="juneDay in juneDays" class="col-2">
+            <div v-for="juneDay in juneDays" class="col-2" @click="goToLocation(juneDay.dayNumber, juneDay.month)">
               <div class="card">
-                <p>
-                  {{ juneDay.dayNumber }}
-                </p>
-                <p>
-                  {{ juneDay.dayName }}
-                </p>
+                <p>{{ juneDay.dayNumber }}</p>
+                <p>{{ juneDay.dayName }}</p>
               </div>
             </div>
           </div>     
@@ -41,12 +51,8 @@
             <h3>Luglio</h3>
             <div v-for="julyDay in julyDays" class="col-2">
               <div class="card">
-                <p>
-                  {{ julyDay.dayNumber }}
-                </p>
-                <p>
-                  {{ julyDay.dayName }}
-                </p>
+                <p>{{ julyDay.dayNumber }}</p>
+                <p>{{ julyDay.dayName }}</p>
               </div>
             </div>
           </div>   
@@ -92,12 +98,11 @@
     // height: 125px;
     background-color: #999;
 
-    .active {
+    &.active {
       background-color: rgb(255, 52, 52);
       color: #ffffff;
     }
   }
-
 
 
   .carousel-control-prev, .carousel-control-next {

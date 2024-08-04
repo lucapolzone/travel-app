@@ -4,6 +4,8 @@
 import { addLocation } from '../db/storage.js';
 
 export default {
+  props: ['slug'],
+
   data() {
     return {
       date: '',
@@ -12,6 +14,15 @@ export default {
     };
   },
   methods: {
+    // Funzione per impostare la data dal parametro slug
+    setDateFromSlug() {
+      if (this.slug) {
+        const [day, month] = this.slug.split('-');
+        const year = new Date().getFullYear(); // Cioè l'anno corrente
+        this.date = `${day}/${month}/${year}`;
+      }
+    },
+
     pushLocationData() {
       
       // Crea un oggetto location
@@ -47,11 +58,14 @@ export default {
 
   },
 
-  /*
+  created() {
+    // Quando il componente è creato, imposta la data basata sul parametro slug
+    this.setDateFromSlug();
+  },
+
   mounted() {
-    console.log(this.$router);
+    // console.log(this.$router);
   }
-  */
 }
 </script>
 
@@ -69,7 +83,7 @@ export default {
     <form @submit="sendLocationData">
       <div class="mb-3">
         <label for="dateLocation" class="form-label">Data tappa</label>
-        <input v-model="date" type="text" class="form-control" id="dateLocation" aria-describedby="dateHelp">
+        <input v-model="date" readonly="readonly" type="text" class="readonly form-control" id="dateLocation" aria-describedby="dateHelp">
       </div>
       <div class="mb-3">
         <label for="nameLocation" class="form-label">Tappa</label>
@@ -90,6 +104,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+ .readonly {
+  color: #bdbdbd;
+ }
 </style>
 
 
