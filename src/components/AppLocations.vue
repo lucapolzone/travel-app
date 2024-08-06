@@ -42,6 +42,7 @@ export default {
           class="carousel-item" 
           :class="{ active: index === 0 }"
         >
+        <h2 class="text-center text-success">{{ index + 1 }}° giorno di viaggio</h2>
           <table class="table table-bordered">
             <thead class="table-primary">
               <tr>
