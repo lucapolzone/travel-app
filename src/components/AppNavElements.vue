@@ -3,7 +3,6 @@
   export default {
     data() {
       return {
-        // activeIndex: 0,
       }
     },
 

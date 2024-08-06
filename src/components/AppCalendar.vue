@@ -4,6 +4,7 @@ import { getLocations } from '../db/storage.js';
   export default {
     data() {
       return {
+        activeDates: []  // Per memorizzare le date attive
       }
     },
 
@@ -14,18 +15,26 @@ import { getLocations } from '../db/storage.js';
     },
    
     methods: {
-    goToLocation(dayNumber, month) {
-      const slug = `${dayNumber}-${month}`;
-      this.$router.push(`/new-location/${slug}`);
+      isActive(calendarDay) {
+        const dateStr = `${calendarDay.dayNumber}/${calendarDay.month}/${calendarDay.year}`;
+        // console.log(dateStr, this.activeDates.includes(dateStr));  // Controllo se le date vengono confrontate correttamente
+        return this.activeDates.includes(dateStr);
+      },
+
+      goToLocationAndActiveCard(calendarDay) {
+        const slug = `${calendarDay.dayNumber}-${calendarDay.month}`;
+        this.$router.push(`/new-location/${slug}`);
+      }
     },
+    mounted() {
+      // Ottiengo le date delle tappe aggiunte da localStorage
+      const locations = getLocations();
 
-
-  },
-  mounted() {
-    // Ottieni le date delle tappe aggiunte da localStorage o da una fonte di dati
-    getLocations();
+      // Estraggo le date attive dall'array di locations e le assegno a activeDates
+      this.activeDates = locations.map(location => location.date);
+      // console.log(this.activeDates);  // Controllo se activeDates è popolato correttamente
+    },
   }
-}
   
 </script>
 <template>
@@ -38,10 +47,17 @@ import { getLocations } from '../db/storage.js';
         <div class="carousel-item active">
           <div class="row gy-2">
             <h3>Giugno</h3>
-            <div v-for="juneDay in juneDays" class="col-2" @click="goToLocation(juneDay.dayNumber, juneDay.month)">
-              <div class="card">
+            <div v-for="juneDay in juneDays" class="col-2">
+              <div 
+                class="card"
+                :class="{ active: isActive(juneDay) }"
+                @click="goToLocationAndActiveCard(juneDay)"
+              >
                 <p>{{ juneDay.dayNumber }}</p>
                 <p>{{ juneDay.dayName }}</p>
+              </div>
+              <div class="text-start ps-5">
+                <i class="fa-solid fa-eye"></i>
               </div>
             </div>
           </div>     
@@ -50,9 +66,15 @@ import { getLocations } from '../db/storage.js';
           <div class="row gy-2">
             <h3>Luglio</h3>
             <div v-for="julyDay in julyDays" class="col-2">
-              <div class="card">
+              <div class="card"
+                :class="{ active: isActive(julyDay) }"
+                @click="goToLocationAndActiveCard(julyDay)"
+              >
                 <p>{{ julyDay.dayNumber }}</p>
                 <p>{{ julyDay.dayName }}</p>
+              </div>
+              <div class="text-start ps-5">
+                <i class="fa-solid fa-eye"></i>
               </div>
             </div>
           </div>   
@@ -61,13 +83,19 @@ import { getLocations } from '../db/storage.js';
           <div class="row gy-2">
           <h3>Agosto</h3>
            <div v-for="augustDay in augustDays" class="col-2">
-              <div class="card">
+              <div class="card"
+                :class="{ active: isActive(augustDay) }"
+                @click="goToLocationAndActiveCard(augustDay)"
+              >
                 <p>
                   {{ augustDay.dayNumber }}
                 </p>
                 <p>
                   {{ augustDay.dayName }}
                 </p>
+              </div>
+              <div class="text-start ps-5">
+                <i class="fa-solid fa-eye"></i>
               </div>
             </div>
           </div>
@@ -103,7 +131,6 @@ import { getLocations } from '../db/storage.js';
       color: #ffffff;
     }
   }
-
 
   .carousel-control-prev, .carousel-control-next {
     width: 32px;
