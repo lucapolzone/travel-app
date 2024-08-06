@@ -8,14 +8,17 @@ export function setLocations(locations) {
   localStorage.setItem('locations', JSON.stringify(locations));
 };
 
+// Funzione per creare la slug dinamicamente
+function createSlug(date) {
+  const [day, month] = date.split('/');
+  return `${day}-${month}`;
+}
 
 export function addLocation(newLocation) {
-
   const locations = getLocations();
 
   // Trova se esiste già un gruppo di localizzazioni per la data fornita
   let locationGroup = locations.find(loc => loc.date === newLocation.date);
-
   
   if (locationGroup) {
     // Se il gruppo di localizzazioni esiste, aggiunge la nuova tappa agli stages di quel gruppo
@@ -26,6 +29,7 @@ export function addLocation(newLocation) {
   } else {
     // Se il gruppo di localizzazioni non esiste, crea un nuovo gruppo e aggiunge la tappa
     locations.push({
+      id: createSlug(newLocation.date), // Aggiunge la slug qui      
       date: newLocation.date,
       stages: [{
         name: newLocation.name,

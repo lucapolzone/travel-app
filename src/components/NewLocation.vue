@@ -54,6 +54,8 @@ export default {
       this.date = '';
       this.name = '';
       this.description = '';
+      // Reimposta la data basata sul parametro slug
+      this.setDateFromSlug();
     }
 
   },
