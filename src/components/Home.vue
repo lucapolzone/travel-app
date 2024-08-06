@@ -1,5 +1,4 @@
 <script>
-  import AppNavElements from './AppNavElements.vue';
   import AppLocations from './AppLocations.vue';
   import AppCalendar from './AppCalendar.vue';
   import AppMap from './AppMap.vue';
@@ -639,7 +638,7 @@
       }
     },
 
-    components: { AppNavElements, AppLocations, AppCalendar, AppMap}
+    components: { AppLocations, AppCalendar, AppMap}
 
   }
   
@@ -647,7 +646,6 @@
 
 <template>
   
-    <app-nav-elements />
     <app-locations />
     <app-calendar :juneDays="juneDays" :julyDays="julyDays" :augustDays="augustDays" />
     <app-map />
