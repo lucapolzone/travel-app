@@ -48,14 +48,14 @@ export default {
               
               <thead class="table-primary">
                 <tr>
-                  <th scope="col" colspan="3" class="text-center">{{ locationGroup.date }}</th>
+                  <th scope="col" colspan="3" class="text-center text-light">{{ locationGroup.date }}</th>
                 </tr>
                 <tr>
                   <th scope="col" colspan="3" class="text-center text-danger">{{ locationGroup.id }}</th>
                 </tr>
                 <tr>
-                  <th scope="col" style="width: 200px;">Nome</th>
-                  <th scope="col">Descrizione</th>
+                  <th scope="col" class="text-light"style="width: 200px;">Nome</th>
+                  <th scope="col" class="text-light">Descrizione</th>
                 </tr>
               </thead>      
               <tbody>
@@ -84,21 +84,28 @@ export default {
 </template>
 <style lang="scss" scoped>
 
- .table-container {
-    height: 290px;
-    overflow-y: auto;
- }
-
-  .carousel-item {
-    padding: 0 5rem;
+  .table-primary {
+    --bs-border-width: 2px;
+    --bs-table-bg: var(--bs-primary);
   }
 
-  .carousel-control-prev, .carousel-control-next {
-    width: 32px;
+
+  .table-container {
+      min-height: 275px;
+      max-height: 290px;
+      overflow-y: auto;
   }
 
-  table {
-    margin-bottom: 0;
-  }
+    .carousel-item {
+      padding: 0 5rem;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+      width: 32px;
+    }
+
+    table {
+      margin-bottom: 0;
+    }
 
 </style>
