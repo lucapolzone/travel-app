@@ -51,13 +51,13 @@ import { getLocations } from '../db/storage.js';
 <template>
   <div class="container text-center">
 
-    <h2 class="mt-5">Calendario</h2>
+    <h3 class="fw-bold mt-5">CALENDARIO</h3>
 
     <div id="carouselCalendar" class="carousel carousel-dark slide">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="row gy-2">
-            <h3>Giugno</h3>
+          <div class="row gy-4">
+            <h3 class="text-danger">Giugno</h3>
             <div v-for="juneDay in juneDays" class="col-2">
               <div 
                 class="card"
@@ -67,10 +67,10 @@ import { getLocations } from '../db/storage.js';
                 <p>{{ juneDay.dayNumber }}</p>
                 <p>{{ juneDay.dayName }}</p>
               </div>
-              <div class="text-start">
+              <div class="text-center mt-1">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" @click="goToLocationAndActiveCard(juneDay)">
-                  Aggiungi tappa
+                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(juneDay)">
+                  <i class="fa-solid fa-plus"></i>
                 </button>
                 <!-- Modal -->
                 <div class="modal fade" :id="`modal-${juneDay.dayNumber}-${juneDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -106,8 +106,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
@@ -117,8 +116,8 @@ import { getLocations } from '../db/storage.js';
           </div>     
         </div>
         <div class="carousel-item">
-          <div class="row gy-2">
-            <h3>Luglio</h3>
+          <div class="row gy-4">
+            <h3 class="text-danger">Luglio</h3>
             <div v-for="julyDay in julyDays" class="col-2">
               <div class="card"
                 :class="{ active: isActive(julyDay) }"
@@ -127,10 +126,10 @@ import { getLocations } from '../db/storage.js';
                 <p>{{ julyDay.dayNumber }}</p>
                 <p>{{ julyDay.dayName }}</p>
               </div>
-              <div class="text-start">
+              <div class="text-center mt-1">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" @click="goToLocationAndActiveCard(julyDay)">
-                  Aggiungi tappa
+                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(julyDay)">
+                  <i class="fa-solid fa-plus"></i>
                 </button>      
                 <!-- Modal -->
                 <div class="modal fade" :id="`modal-${julyDay.dayNumber}-${julyDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,8 +165,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
@@ -177,8 +175,8 @@ import { getLocations } from '../db/storage.js';
           </div>   
         </div>
         <div class="carousel-item">
-          <div class="row gy-2">
-          <h3>Agosto</h3>
+          <div class="row gy-4">
+          <h3 class="text-danger">Agosto</h3>
            <div v-for="augustDay in augustDays" class="col-2">
               <div class="card"
                 :class="{ active: isActive(augustDay) }"
@@ -191,10 +189,10 @@ import { getLocations } from '../db/storage.js';
                   {{ augustDay.dayName }}
                 </p>
               </div>
-              <div class="text-start">
+              <div class="text-center mt-1">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" @click="goToLocationAndActiveCard(augustDay)">
-                  Aggiungi tappa
+                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(augustDay)">
+                  <i class="fa-solid fa-plus"></i>
                 </button>                
                 <!-- Modal -->
                 <div class="modal fade" :id="`modal-${augustDay.dayNumber}-${augustDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -230,8 +228,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
@@ -260,20 +257,40 @@ import { getLocations } from '../db/storage.js';
     padding: 0 5rem;
   }
 
-  .card {
-    width: 125px;
-    aspect-ratio: 1;
-    // height: 125px;
-    background-color: #999;
+  .col-2 {
 
-    &.active {
-      background-color: rgb(255, 52, 52);
-      color: #ffffff;
+    .card {
+      // width: 125px;
+      aspect-ratio: 1;
+      // height: 125px;
+      background-color: rgb(238, 200, 129);
+      justify-content: center;
+      opacity: 0.6;
+      
+      p:first-of-type {
+        color: rgb(233, 5, 5);
+        font-weight: bold;
+      }
+      
+      p:last-of-type {
+        font-weight: bold;
+      }
+
+
+      &.active {
+        opacity: 1;
+      }
+    }
+    
+    button {
+      width: 38px; 
+      padding-left: 11px;
     }
   }
 
   .carousel-control-prev, .carousel-control-next {
     width: 32px;
   }
+
 
 </style>

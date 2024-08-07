@@ -9,7 +9,7 @@
 </script>
 <template>
   <div class="container">
-    <h2>Map</h2>
+    <h3 class="fw-bold mt-5">MAP</h3>
     <div class="card">mappa</div>
   </div>
 </template>

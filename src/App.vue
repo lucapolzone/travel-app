@@ -11,13 +11,26 @@
 </script>
 
 <template>
-  <div style="background-color: #8eee76;" class="p-1 mb-4 rounded-4">
-    <h1>Travel App</h1>
-  </div>
+  <header>
+    <div class="p-3 mt-4 rounded-4 text-center">
+      <h1 class="text-light">TRAVEL APP</h1>
+    </div>
+  </header>
 
   <router-view />
 
 </template>
 
 <style lang="scss" scoped>
+
+  header {
+    div {
+      margin-right: auto;
+      margin-left: auto;
+      background-color: #8eee76;
+      max-width: 1000px;
+    }
+    margin-bottom: 4rem;
+  }
+
 </style>

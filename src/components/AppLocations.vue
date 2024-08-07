@@ -32,7 +32,7 @@ export default {
 
   <div class="container">
 
-    <h2 class="mt-5">Tappe viaggio</h2>
+    <h3 class="fw-bold mt-5 text-center">TAPPE DI VIAGGIO</h3>
 
     <div id="carouselLocations" class="carousel carousel-dark slide">
       <div class="carousel-inner">
@@ -42,27 +42,30 @@ export default {
           class="carousel-item" 
           :class="{ active: index === 0 }"
         >
-        <h2 class="text-center text-success">{{ index + 1 }}° giorno di viaggio</h2>
-          <table class="table table-bordered">
-            <thead class="table-primary">
-              <tr>
-                <th scope="col" colspan="3" class="text-center">{{ locationGroup.date }}</th>
-              </tr>
-              <tr>
-                <th scope="col" colspan="3" class="text-center text-danger">{{ locationGroup.id }}</th>
-              </tr>
-              <tr>
-                <th scope="col" style="width: 200px;">Nome</th>
-                <th scope="col">Descrizione</th>
-              </tr>
-            </thead>      
-            <tbody>
-              <tr v-for="stage in locationGroup.stages">
-                <td>{{ stage.name }}</td>
-                <td>{{ stage.description }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3 class="my-4 text-center text-success">{{ index + 1 }}° giorno di viaggio</h3>
+          <div class="table-container">
+            <table class="table table-bordered">
+              
+              <thead class="table-primary">
+                <tr>
+                  <th scope="col" colspan="3" class="text-center">{{ locationGroup.date }}</th>
+                </tr>
+                <tr>
+                  <th scope="col" colspan="3" class="text-center text-danger">{{ locationGroup.id }}</th>
+                </tr>
+                <tr>
+                  <th scope="col" style="width: 200px;">Nome</th>
+                  <th scope="col">Descrizione</th>
+                </tr>
+              </thead>      
+              <tbody>
+                <tr v-for="stage in locationGroup.stages">
+                  <td>{{ stage.name }}</td>
+                  <td>{{ stage.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselLocations" data-bs-slide="prev">
@@ -80,6 +83,11 @@ export default {
 
 </template>
 <style lang="scss" scoped>
+
+ .table-container {
+    height: 290px;
+    overflow-y: auto;
+ }
 
   .carousel-item {
     padding: 0 5rem;
