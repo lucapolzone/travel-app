@@ -24,7 +24,6 @@ export default {
     },
 
     pushLocationData() {
-      
       // Crea un oggetto location
       const newLocation = {
         date: this.date,
@@ -34,11 +33,9 @@ export default {
 
       // Aggiungi la nuova location al localStorage
       addLocation(newLocation);
-
     },
 
     sendLocationData() {
-
       this.pushLocationData();
       
       // Reindirizza alla pagina principale
@@ -47,7 +44,6 @@ export default {
 
     saveAndNewLocation(event) {
       event.preventDefault(); // Previene il refresh predefinito del form
-
       this.pushLocationData();
 
       // Resetta i campi del form

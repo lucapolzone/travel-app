@@ -11,10 +11,6 @@ export default {
 
   },
   
-  props: {
-    locations2: Array
-  },
-
   created() {
     // Il data locations[] viene associato a getLocations() dello storage
     this.locations = getLocations();
@@ -34,7 +30,11 @@ export default {
 
     <h3 class="fw-bold mt-5 text-center">TAPPE DI VIAGGIO</h3>
 
-    <div id="carouselLocations" class="carousel carousel-dark slide">
+    <div v-if="locations.length == 0" class="text-center mt-4 text-warning">
+      <h3>Aggiungi una tappa di viaggio!</h3>
+    </div>
+
+    <div v-if="locations.length != 0" id="carouselLocations" class="carousel carousel-dark slide">
       <div class="carousel-inner">
         <div
           v-for="(locationGroup, index) in locations" 
