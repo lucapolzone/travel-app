@@ -19,6 +19,7 @@ export default {
       if (this.slug) {
         const [day, month] = this.slug.split('-');
         const year = new Date().getFullYear(); // Cioè l'anno corrente
+        //Crea una data tipo 01/06/2024
         this.date = `${day}/${month}/${year}`;
       }
     },
@@ -47,11 +48,9 @@ export default {
       this.pushLocationData();
 
       // Resetta i campi del form
-      this.date = '';
+      this.setDateFromSlug();
       this.name = '';
       this.description = '';
-      // Reimposta la data basata sul parametro slug
-      this.setDateFromSlug();
     }
 
   },

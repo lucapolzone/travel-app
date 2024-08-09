@@ -87,14 +87,14 @@ import { getLocations } from '../db/storage.js';
                         <table class="table table-bordered">
                           <thead class="table-primary">
                             <tr>
-                              <th scope="col" colspan="3" class="text-center">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
+                              <th scope="col" colspan="3" class="text-center text-light">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
                             </tr>
                             <tr>
                               <th scope="col" colspan="3" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" style="width: 200px;">Nome</th>
-                              <th scope="col">Descrizione</th>
+                              <th scope="col" style="width: 200px;" class="text-light">Nome</th>
+                              <th scope="col" class="text-light">Descrizione</th>
                             </tr>
                           </thead>      
                           <tbody>

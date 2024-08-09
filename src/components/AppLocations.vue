@@ -84,11 +84,6 @@ export default {
 </template>
 <style lang="scss" scoped>
 
-  .table-primary {
-    --bs-border-width: 2px;
-    --bs-table-bg: var(--bs-primary);
-  }
-
 
   .table-container {
       min-height: 275px;
