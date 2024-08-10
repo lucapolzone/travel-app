@@ -68,7 +68,6 @@ import { getLocations } from '../db/storage.js';
                 <p>{{ juneDay.dayName }}</p>
               </div>
               <div class="text-center mt-1">
-                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(juneDay)">
                   <i class="fa-solid fa-plus"></i>
                 </button>
@@ -127,7 +126,6 @@ import { getLocations } from '../db/storage.js';
                 <p>{{ julyDay.dayName }}</p>
               </div>
               <div class="text-center mt-1">
-                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(julyDay)">
                   <i class="fa-solid fa-plus"></i>
                 </button>      
@@ -190,7 +188,6 @@ import { getLocations } from '../db/storage.js';
                 </p>
               </div>
               <div class="text-center mt-1">
-                <!-- Button trigger modal -->
                 <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(augustDay)">
                   <i class="fa-solid fa-plus"></i>
                 </button>                
