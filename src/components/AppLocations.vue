@@ -48,20 +48,34 @@ export default {
               
               <thead class="table-primary">
                 <tr>
-                  <th scope="col" colspan="3" class="text-center text-light">{{ locationGroup.date }}</th>
+                  <th scope="col" colspan="5" class="text-center text-light">{{ locationGroup.date }}</th>
                 </tr>
                 <tr>
-                  <th scope="col" colspan="3" class="text-center text-danger">{{ locationGroup.id }}</th>
+                  <th scope="col" colspan="5" class="text-center text-danger">{{ locationGroup.id }}</th>
                 </tr>
                 <tr>
                   <th scope="col" class="text-light"style="width: 200px;">Nome</th>
                   <th scope="col" class="text-light">Descrizione</th>
+                  <th scope="col" class="text-light text-center">Modifica</th>
+                  <th scope="col" class="text-light text-center">Cancella</th>
                 </tr>
               </thead>      
               <tbody>
-                <tr v-for="stage in locationGroup.stages">
+                <tr v-for="(stage, stageIndex) in locationGroup.stages" :key="stage.name">
                   <td>{{ stage.name }}</td>
                   <td>{{ stage.description }}</td>
+                  <td class="text-center">
+                    <router-link :to="{ name: 'edit-location-slug', params: { slug: locationGroup.id, stageIndex: stageIndex } }">
+                      <button class="btn btn-warning">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                    </router-link>            
+                  </td>
+                  <td class="text-center">
+                    <a href="" class="btn btn-danger">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                  </td>
                 </tr>
               </tbody>
             </table>
