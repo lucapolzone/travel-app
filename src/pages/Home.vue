@@ -1,7 +1,7 @@
 <script>
-  import AppLocations from './AppLocations.vue';
-  import AppCalendar from './AppCalendar.vue';
-  import AppMap from './AppMap.vue';
+  import AppLocations from '../components/AppLocations.vue';
+  import AppCalendar from '../components/AppCalendar.vue';
+  import AppMap from '../components/AppMap.vue';
 
   export default {
     data() {

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from './components/Home.vue'; 
-import NewLocation from './components/NewLocation.vue'; 
+import Home from './pages/Home.vue'; 
+import NewLocation from './pages/NewLocation.vue'; 
 import EditLocation from './components/EditLocation.vue';
 
 const router = createRouter({
