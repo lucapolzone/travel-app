@@ -1,5 +1,5 @@
 <script>
-import { getLocations } from '../db/storage.js'; 
+import { getLocations, setLocations } from '../db/storage.js'; 
 
 export default {
   data() {
@@ -8,6 +8,23 @@ export default {
     };
   },
   methods: {
+    deleteStage(locationId, stageName) {
+      // Trova il locationGroup corrispondente per ID
+      const locationIndex = this.locations.findIndex(location => location.id === locationId);
+      
+      if (locationIndex !== -1) {
+        // Trova l'indice della tappa specifica nel gruppo
+        const stageIndex = this.locations[locationIndex].stages.findIndex(stage => stage.name === stageName);
+
+        if (stageIndex !== -1) {
+          // Rimuove la tappa specifica
+          this.locations[locationIndex].stages.splice(stageIndex, 1);
+
+          // Aggiorna il localStorage
+          setLocations(this.locations);
+        }
+      }
+    },
 
   },
   
@@ -72,9 +89,9 @@ export default {
                     </router-link>            
                   </td>
                   <td class="text-center">
-                    <a href="" class="btn btn-danger">
+                    <button @click="deleteStage(locationGroup.id, stage.name)" class="btn btn-danger">
                       <i class="fa-solid fa-trash-can"></i>
-                    </a>
+                    </button>
                   </td>
                 </tr>
               </tbody>
