@@ -232,8 +232,8 @@ import { getLocations, setLocations } from '../db/storage.js';
                                 </button>
                               </td>
                               <td>
-                                <button class="btn btn-danger">
-                                  <i class="fa-solid fa-trash-can"></i>
+                                <button class="btn btn-danger" @click="deleteStage(stage.name, julyDay)">
+                                 <i class="fa-solid fa-trash-can"></i>
                                 </button>
                               </td>
                             </tr>
@@ -306,8 +306,8 @@ import { getLocations, setLocations } from '../db/storage.js';
                                 </button>
                               </td>
                               <td>
-                                <button class="btn btn-danger">
-                                  <i class="fa-solid fa-trash-can"></i>
+                                <button class="btn btn-danger" @click="deleteStage(stage.name, augustDay)">
+                                 <i class="fa-solid fa-trash-can"></i>
                                 </button>
                               </td>
                             </tr>
