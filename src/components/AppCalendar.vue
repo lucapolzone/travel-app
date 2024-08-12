@@ -86,20 +86,32 @@ import { getLocations } from '../db/storage.js';
                         <table class="table table-bordered">
                           <thead class="table-primary">
                             <tr>
-                              <th scope="col" colspan="3" class="text-center text-light">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
+                              <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="3" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th>
+                              <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th>
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;" class="text-light">Nome</th>
                               <th scope="col" class="text-light">Descrizione</th>
+                              <th scope="col" class="text-light">Modifica</th>
+                              <th scope="col" class="text-light">Cancella</th>
                             </tr>
                           </thead>      
                           <tbody>
                             <tr v-for="stage in getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).stages" :key="stage.name">
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
+                              <td>
+                                <button class="btn btn-warning">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                              <td class="text-center">
+                                <button class="btn btn-danger">
+                                  <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -144,20 +156,32 @@ import { getLocations } from '../db/storage.js';
                         <table class="table table-bordered">
                           <thead class="table-primary">
                             <tr>
-                              <th scope="col" colspan="3" class="text-center">{{ getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).date }}</th>
+                              <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="3" class="text-center text-danger">{{ julyDay.dayNumber }}-{{ julyDay.month }}</th>
+                              <th scope="col" colspan="5" class="text-center text-danger">{{ julyDay.dayNumber }}-{{ julyDay.month }}</th>
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;">Nome</th>
                               <th scope="col">Descrizione</th>
+                              <th scope="col">Modifica</th>
+                              <th scope="col">Cancella</th>
                             </tr>
                           </thead>      
                           <tbody>
                             <tr v-for="stage in getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).stages" :key="stage.name">
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
+                              <td>
+                                <button class="btn btn-warning">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="btn btn-danger">
+                                  <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -206,20 +230,32 @@ import { getLocations } from '../db/storage.js';
                         <table class="table table-bordered">
                           <thead class="table-primary">
                             <tr>
-                              <th scope="col" colspan="3" class="text-center">{{ getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).date }}</th>
+                              <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="3" class="text-center text-danger">{{ augustDay.dayNumber }}-{{ augustDay.month }}</th>
+                              <th scope="col" colspan="5" class="text-center text-danger">{{ augustDay.dayNumber }}-{{ augustDay.month }}</th>
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;">Nome</th>
                               <th scope="col">Descrizione</th>
+                              <th scope="col">Modifica</th>
+                              <th scope="col">Cancella</th>
                             </tr>
                           </thead>      
                           <tbody>
                             <tr v-for="stage in getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).stages" :key="stage.name">
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
+                              <td>
+                                <button class="btn btn-warning">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                              <td>
+                                <button class="btn btn-danger">
+                                  <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
