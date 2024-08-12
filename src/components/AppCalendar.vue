@@ -1,10 +1,14 @@
 <script>
-import { getLocations } from '../db/storage.js';
+import { getLocations, setLocations } from '../db/storage.js';
 
   export default {
     data() {
       return {
-        activeDates: []  // Per memorizzare le date attive
+        activeDates: [],  // Per memorizzare le date attive
+        editingStage: null, // Stato per memorizzare la tappa in fase di modifica
+        editingDay: null, // Stato per memorizzare il giorno della tappa in modifica
+        stageName: '',
+        stageDescription: ''
       }
     },
 
@@ -35,7 +39,42 @@ import { getLocations } from '../db/storage.js';
       getLocationForModal(slug) {
         const locations = getLocations();
         return locations.find(location => location.id === slug) || {};
-      }      
+      },
+
+      // Funzione per aprire il modale di modifica
+      openEditModal(stage, day) {
+        this.editingStage = stage;
+        this.editingDay = day;
+        this.stageName = stage.name;
+        this.stageDescription = stage.description;
+        const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        editModal.show();
+      },
+
+      // Funzione per salvare le modifiche
+      saveStageChanges() {
+        const locations = getLocations();
+        const location = locations.find(location => location.id === `${this.editingDay.dayNumber}-${this.editingDay.month}`);
+
+        if (location) {
+          const stageIndex = location.stages.findIndex(stage => stage.name === this.editingStage.name);
+          if (stageIndex !== -1) {
+            location.stages[stageIndex].name = this.stageName;
+            location.stages[stageIndex].description = this.stageDescription;
+          }
+
+          setLocations(locations);
+          this.refreshCalendar();
+        }
+
+        this.closeEditModal(); // Chiude il modale dopo il salvataggio
+      },
+
+      // Funzione per ricaricare il calendario dopo una modifica
+      refreshCalendar() {
+        const locations = getLocations();
+        this.activeDates = locations.map(location => location.date);
+      }
     },
     mounted() {
       // Ottiengo le date delle tappe aggiunte da localStorage
@@ -103,7 +142,7 @@ import { getLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning">
+                                <button class="btn btn-warning" @click="openEditModal(stage, juneDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -117,7 +156,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
                       </div>
                     </div>
                   </div>
@@ -173,7 +212,7 @@ import { getLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning">
+                                <button class="btn btn-warning" @click="openEditModal(stage, julyDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -187,7 +226,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
                       </div>
                     </div>
                   </div>
@@ -247,7 +286,7 @@ import { getLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning">
+                                <button class="btn btn-warning" @click="openEditModal(stage, augustDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -261,7 +300,7 @@ import { getLocations } from '../db/storage.js';
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
                       </div>
                     </div>
                   </div>
@@ -282,6 +321,31 @@ import { getLocations } from '../db/storage.js';
       </button>
     </div>
 
+    <!-- Modal di modifica -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Modifica Tappa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="stageName" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="stageName" v-model="stageName">
+            </div>
+            <div class="mb-3">
+              <label for="stageDescription" class="form-label">Descrizione</label>
+              <input type="text" class="form-control" id="stageDescription" v-model="stageDescription">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn btn-primary" @click="saveStageChanges">Salva modifiche</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </template>
