@@ -70,11 +70,26 @@ import { getLocations, setLocations } from '../db/storage.js';
         this.closeEditModal(); // Chiude il modale dopo il salvataggio
       },
 
+      deleteStage(stageName, day) {
+        const locations = getLocations();
+        const location = locations.find(location => location.id === `${day.dayNumber}-${day.month}`);
+
+        if (location) {
+          location.stages = location.stages.filter(stage => stage.name !== stageName);
+          setLocations(locations);
+          this.refreshCalendar();
+        }
+
+        this.closeEditModal(); // Chiude il modale dopo la cancellazione
+      },      
+
       // Funzione per ricaricare il calendario dopo una modifica
       refreshCalendar() {
         const locations = getLocations();
         this.activeDates = locations.map(location => location.date);
-      }
+      },
+
+
     },
     mounted() {
       // Ottiengo le date delle tappe aggiunte da localStorage
@@ -147,8 +162,8 @@ import { getLocations, setLocations } from '../db/storage.js';
                                 </button>
                               </td>
                               <td class="text-center">
-                                <button class="btn btn-danger">
-                                  <i class="fa-solid fa-trash-can"></i>
+                                <button class="btn btn-danger" @click="deleteStage(stage.name, juneDay)">
+                                 <i class="fa-solid fa-trash-can"></i>
                                 </button>
                               </td>
                             </tr>
