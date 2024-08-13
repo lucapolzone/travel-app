@@ -67,7 +67,7 @@ import { getLocations, setLocations } from '../db/storage.js';
           this.refreshCalendar();
         }
 
-        this.closeEditModal(); // Chiude il modale dopo il salvataggio
+        // this.closeEditModal(); // Chiude il modale dopo il salvataggio
       },
 
       deleteStage(stageName, day) {
@@ -80,7 +80,7 @@ import { getLocations, setLocations } from '../db/storage.js';
           this.refreshCalendar();
         }
 
-        this.closeEditModal(); // Chiude il modale dopo la cancellazione
+        // this.closeEditModal(); // Chiude il modale dopo la cancellazione
       },      
 
       // Funzione per ricaricare il calendario dopo una modifica
@@ -143,7 +143,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th>
+                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th> -->
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;" class="text-light">Nome</th>
@@ -213,7 +213,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="5" class="text-center text-danger">{{ julyDay.dayNumber }}-{{ julyDay.month }}</th>
+                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ julyDay.dayNumber }}-{{ julyDay.month }}</th> -->
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;">Nome</th>
@@ -287,7 +287,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).date }}</th>
                             </tr>
                             <tr>
-                              <th scope="col" colspan="5" class="text-center text-danger">{{ augustDay.dayNumber }}-{{ augustDay.month }}</th>
+                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ augustDay.dayNumber }}-{{ augustDay.month }}</th> -->
                             </tr>
                             <tr>
                               <th scope="col" style="width: 200px;">Nome</th>

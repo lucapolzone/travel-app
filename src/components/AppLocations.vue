@@ -68,7 +68,7 @@ export default {
                   <th scope="col" colspan="5" class="text-center text-light">{{ locationGroup.date }}</th>
                 </tr>
                 <tr>
-                  <th scope="col" colspan="5" class="text-center text-danger">{{ locationGroup.id }}</th>
+                  <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ locationGroup.id }}</th> -->
                 </tr>
                 <tr>
                   <th scope="col" class="text-light"style="width: 200px;">Nome</th>
