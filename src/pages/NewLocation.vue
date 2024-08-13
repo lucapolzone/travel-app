@@ -93,9 +93,9 @@ export default {
       <button type="submit" class="btn btn-success me-5">Salva</button>
       <button @click="saveAndNewLocation" class="btn btn-primary me-4">
         <i class="fa-solid fa-plus"></i>
-        Salva e nuovo 
+        Salva e nuova tappa 
       </button>
-      <button type="reset" class="btn btn-warning">Reset</button>
+      <!-- <button type="reset" class="btn btn-warning">Reset</button> -->
     </form>
   </div>
 </template>
