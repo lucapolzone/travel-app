@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import Home from './pages/Home.vue'; 
 import NewLocation from './pages/NewLocation.vue'; 
-import EditLocation from './components/EditLocation.vue';
+import EditLocation from './pages/EditLocation.vue';
 
 const router = createRouter({
   history: createWebHistory(),
