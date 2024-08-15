@@ -55,6 +55,9 @@ Per eseguire questo progetto, è necessario avere installato:
 - **Aggiunta di una tappa:**
 
   - Sotto le card del calendario, cliccando sull’icona `+` , puoi aggiungere una nuova tappa al tuo viaggio. Ti verrà richiesto di inserire un nome e una descrizione per la nuova tappa.
+
+  - Il progetto utilizza `localStorage` per la persistenza dei dati. Le tappe aggiunte dagli utenti vengono salvate localmente nel browser, permettendo di mantenere le informazioni anche dopo la chiusura del browser o il riavvio dell'applicazione.
+
   - Una volta aggiunta almeno una tappa alla tua giornata di viaggio, la card relativa nel calendario diventerà “attiva”.
 
 - **Visualizzazione delle tappe:**
