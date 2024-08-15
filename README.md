@@ -70,3 +70,7 @@ Per eseguire questo progetto è necessario avere installato:
 
 - **Visualizzazione su Mappa:**
   - Sotto il calendario c'è una mappa interattiva. Le tappe che hai aggiunto vengono "pinnate" sulla mappa, mostrando visivamente le località che fanno parte del tuo viaggio.
+
+## Deploy
+
+Il progetto è pubblicato su Vercel e può essere visualizzato al seguente link: https://travel-kny6m5mnd-lucapolzs-projects.vercel.app/
