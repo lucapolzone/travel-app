@@ -73,4 +73,4 @@ Per eseguire questo progetto è necessario avere installato:
 
 ## Deploy
 
-Il progetto è pubblicato su Vercel e può essere visualizzato al seguente link: https://travel-kny6m5mnd-lucapolzs-projects.vercel.app/
+Il progetto è pubblicato su Vercel e può essere visualizzato al seguente link: https://travel-app-three-delta.vercel.app/
