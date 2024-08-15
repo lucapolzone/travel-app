@@ -11,7 +11,7 @@
 
 ## Requisiti
 
-Per eseguire questo progetto, è necessario avere installato:
+Per eseguire questo progetto è necessario avere installato:
 
 - **Node.js** (versione 14 o superiore)
 - **npm** (incluso con Node.js)
