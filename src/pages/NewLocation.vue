@@ -24,6 +24,7 @@ export default {
       }
     },
 
+    // Funzione che pusha i dati nell’array locations nel localStorage
     pushLocationData() {
       // Crea un oggetto location
       const newLocation = {
@@ -36,6 +37,7 @@ export default {
       addLocation(newLocation);
     },
 
+    // Funzione che invia i dati del form
     sendLocationData() {
       this.pushLocationData();
       
@@ -43,6 +45,7 @@ export default {
       this.$router.push('/');
     },
 
+    // Funzione che invia i dati del form e svuota il form
     saveAndNewLocation(event) {
       event.preventDefault(); // Previene il refresh predefinito del form
       this.pushLocationData();

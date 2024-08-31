@@ -22,6 +22,7 @@ const router = createRouter({
       path: "/edit-location/:slug/:stageIndex",
       name: "edit-location-slug",
       component: EditLocation,
+      //slug e :stageIndex sono parametri (params) dinamici della rotta.
       props: route => ({ slug: route.params.slug, stageIndex: parseInt(route.params.stageIndex) })
     }
   ],

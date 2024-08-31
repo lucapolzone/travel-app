@@ -8,6 +8,7 @@ export default {
     };
   },
   methods: {
+    //Funzione per cancellare tappa
     deleteStage(locationId, stageName) {
       // Trova il locationGroup corrispondente per ID
       const locationIndex = this.locations.findIndex(location => location.id === locationId);

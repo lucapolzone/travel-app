@@ -3,6 +3,7 @@
 import { getLocations, setLocations } from '../db/storage.js';
 
 export default {
+  //queste props arrivano da router.js, dalla rotta edit
   props: ['slug', 'stageIndex'],
 
   data() {
@@ -13,9 +14,11 @@ export default {
     };
   },
   methods: {
-    // Imposta i campi data, nome e descrizione in base alla slug e stageIndex
+    // Funzione che imposta i campi del form in base ai params slug e stageIndex
+    // ad es. http://localhost:5173/edit-location/01-06/0 o http://localhost:5173/edit-location/01-06/1
     setLocationDataFromSlug() {
       const locations = getLocations();
+      // find() cerca all'interno dell'array locations un oggetto che abbia id uguale a this.slug, tipo 01-06
       const locationGroup = locations.find(loc => loc.id === this.slug);
       if (locationGroup && locationGroup.stages[this.stageIndex]) {
         this.date = locationGroup.date;
@@ -25,7 +28,7 @@ export default {
       }
     },
 
-    // Aggiorna i dati della tappa modificata
+    // Funzione che aggiorna i dati nel localStorage della tappa modificata 
     updateLocationData() {
       const locations = getLocations();
       const locationGroup = locations.find(loc => loc.id === this.slug);
@@ -37,6 +40,7 @@ export default {
       }
     },
 
+    // Funzione che invia dati del form
     sendLocationData() {
       this.updateLocationData();
       // Reindirizza alla pagina principale

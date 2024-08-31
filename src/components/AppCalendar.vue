@@ -19,30 +19,34 @@ import { getLocations, setLocations } from '../db/storage.js';
     },
    
     methods: {
+      // Funzione card attiva
       isActive(calendarDay) {
         const dateStr = `${calendarDay.dayNumber}/${calendarDay.month}/${calendarDay.year}`;
         // console.log(dateStr, this.activeDates.includes(dateStr));  // Controllo se le date vengono confrontate correttamente
         return this.activeDates.includes(dateStr);
       },
 
+      // Funzione "vai al form nuova location" e quindi card sarà attiva
       goToLocationAndActiveCard(calendarDay) {
         const slug = `${calendarDay.dayNumber}-${calendarDay.month}`;
         this.$router.push(`/new-location/${slug}`);
       },
 
+      // Modale
       showModal(day) {
         const slug = `${day.dayNumber}-${day.month}`;
         const modal = new bootstrap.Modal(document.getElementById(`modal-${slug}`));
         modal.show();
       },
 
+      // Modale
       getLocationForModal(slug) {
         const locations = getLocations();
         return locations.find(location => location.id === slug) || {};
       },
 
-      // Funzione per aprire il modale di modifica
-      openEditModal(stage, day) {
+      // Modale: Funzione per aprire la modale di modifica
+      showEditModal(stage, day) {
         this.editingStage = stage;
         this.editingDay = day;
         this.stageName = stage.name;
@@ -51,8 +55,8 @@ import { getLocations, setLocations } from '../db/storage.js';
         editModal.show();
       },
 
-      // Funzione per salvare le modifiche
-      saveStageChanges() {
+      // Modale: Funzione per salvare le modifiche in modale
+      saveModalStageChanges() {
         const locations = getLocations();
         const location = locations.find(location => location.id === `${this.editingDay.dayNumber}-${this.editingDay.month}`);
 
@@ -70,6 +74,7 @@ import { getLocations, setLocations } from '../db/storage.js';
         // this.closeEditModal(); // Chiude il modale dopo il salvataggio
       },
 
+      // Funzione per cancellare la tappa
       deleteStage(stageName, day) {
         const locations = getLocations();
         const location = locations.find(location => location.id === `${day.dayNumber}-${day.month}`);
@@ -83,7 +88,7 @@ import { getLocations, setLocations } from '../db/storage.js';
         // this.closeEditModal(); // Chiude il modale dopo la cancellazione
       },      
 
-      // Funzione per ricaricare il calendario dopo una modifica
+      // Funzione per ricaricare il calendario dopo edit o delete tappa
       refreshCalendar() {
         const locations = getLocations();
         this.activeDates = locations.map(location => location.date);
@@ -92,7 +97,7 @@ import { getLocations, setLocations } from '../db/storage.js';
 
     },
     mounted() {
-      // Ottiengo le date delle tappe aggiunte da localStorage
+      // Ottengo le date delle tappe aggiunte da localStorage
       const locations = getLocations();
 
       // Estraggo le date attive dall'array di locations e le assegno a activeDates
@@ -157,7 +162,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning" @click="openEditModal(stage, juneDay)">
+                                <button class="btn btn-warning" @click="showEditModal(stage, juneDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -227,7 +232,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning" @click="openEditModal(stage, julyDay)">
+                                <button class="btn btn-warning" @click="showEditModal(stage, julyDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -301,7 +306,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning" @click="openEditModal(stage, augustDay)">
+                                <button class="btn btn-warning" @click="showEditModal(stage, augustDay)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
@@ -356,7 +361,7 @@ import { getLocations, setLocations } from '../db/storage.js';
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-            <button type="button" class="btn btn-primary" @click="saveStageChanges">Salva modifiche</button>
+            <button type="button" class="btn btn-primary" @click="saveModalStageChanges">Salva modifiche</button>
           </div>
         </div>
       </div>

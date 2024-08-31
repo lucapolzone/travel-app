@@ -14,20 +14,21 @@ function createSlug(date) {
   return `${day}-${month}`;
 }
 
+// Funzione per aggiungere location all'array locations
 export function addLocation(newLocation) {
   const locations = getLocations();
 
-  // Trova se esiste già un gruppo di localizzazioni per la data fornita
+  // Trova se esiste già un gruppo di location per la data fornita
   let locationGroup = locations.find(loc => loc.date === newLocation.date);
   
   if (locationGroup) {
-    // Se il gruppo di localizzazioni esiste, aggiunge la nuova tappa agli stages di quel gruppo
+    // Se il gruppo di location esiste, aggiunge la nuova tappa agli stages di quel gruppo
     locationGroup.stages.push({
       name: newLocation.name,
       description: newLocation.description
     });
   } else {
-    // Se il gruppo di localizzazioni non esiste, crea un nuovo gruppo e aggiunge la tappa
+    // Se il gruppo di location non esiste, crea un nuovo gruppo e aggiunge la tappa
     locations.push({
       id: createSlug(newLocation.date), // Aggiunge la slug qui      
       date: newLocation.date,
