@@ -20,9 +20,10 @@ export function addLocation(newLocation) {
 
   // Trova se esiste già un gruppo di location per la data fornita
   let locationGroup = locations.find(loc => loc.date === newLocation.date);
+  // console.log(locationGroup);
   
   if (locationGroup) {
-    // Se il gruppo di location esiste, aggiunge la nuova tappa agli stages di quel gruppo
+    // Se il gruppo di location esiste, aggiunge il nuovo stage a quel gruppo
     locationGroup.stages.push({
       name: newLocation.name,
       description: newLocation.description
