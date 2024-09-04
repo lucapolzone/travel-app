@@ -4,10 +4,13 @@ import { getLocations } from '../db/storage.js';
 
 export default {
   name: 'AppMap',
+
+  //setup() serve per gestire lo stato e la logica del componente. setup() è sintassi di Composition API
   setup() {
     const mapRef = ref(null);
     const apiKey = 'sqFPSvLFaQfP1BKlG3WDTf6up7gaUOZA';
-
+    
+    // Codice eseguito al montaggio del componente
     onMounted(async () => {
       const tt = window.tt;
 
@@ -31,6 +34,7 @@ export default {
       }
     });
 
+    // Funzione asincrona per ottenere le coordinate di una località utilizzando l'API TomTom.
     async function getCoordinates(locationName) {
       const response = await fetch(`https://api.tomtom.com/search/2/geocode/${encodeURIComponent(locationName)}.json?key=${apiKey}`);
       const data = await response.json();
@@ -42,6 +46,7 @@ export default {
       }
     }
 
+    // Funzione che recupera le località dal localStorage e le prepara per l'uso con i marker.
     function getLocationsFromStorage() {
       const locations = getLocations(); // Ottieni le località dal localStorage
 

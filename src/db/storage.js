@@ -31,13 +31,15 @@ export function addLocation(newLocation) {
   } else {
     // Se il gruppo di location non esiste, crea un nuovo gruppo e aggiunge la tappa
     locations.push({
-      id: createSlug(newLocation.date), // Aggiunge la slug qui      
+      id: createSlug(newLocation.date), // Aggiunge la slug qui, ad esempio 01-06
       date: newLocation.date,
       stages: [{
         name: newLocation.name,
         description: newLocation.description
       }]
     });
+
+    console.log(locations);
   }
 
   // Ordinamento per data crescente
