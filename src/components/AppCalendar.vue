@@ -117,7 +117,7 @@ import { getLocations, setLocations } from '../db/storage.js';
         <div class="carousel-item active">
           <div class="row gy-4">
             <h3 class="text-danger">Giugno</h3>
-            <div v-for="juneDay in juneDays" class="col-2">
+            <div v-for="juneDay in juneDays" class="col-3 col-sm-2">
               <div 
                 class="card"
                 :class="{ active: isActive(juneDay) }"
@@ -370,11 +370,20 @@ import { getLocations, setLocations } from '../db/storage.js';
 
 </template>
 <style lang="scss" scoped>
-  .carousel-item {
-    padding: 0 5rem;
+  #carouselCalendar {
+    display: flex;
+    justify-content: center;
   }
 
-  .col-2 {
+  .carousel-inner {
+    max-width: 1000px;
+  }
+
+  .carousel-item {
+    padding: 0 1rem;
+  }
+
+  .col-sm-2 {
 
     .card {
       // width: 125px;
@@ -404,9 +413,15 @@ import { getLocations, setLocations } from '../db/storage.js';
       padding-left: 11px;
     }
   }
-
+  
   .carousel-control-prev, .carousel-control-next {
     width: 32px;
+  }
+
+  @media screen and (max-width: 480px) { 
+    button {
+      transform: scale(0.7);
+    }
   }
 
 
