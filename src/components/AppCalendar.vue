@@ -13,18 +13,7 @@ import { getLocations, setLocations } from '../db/storage.js';
     },
 
     props: {
-      januaryDays: Array,
-      februaryDays: Array,
-      marchDays: Array,
-      aprilDays: Array,
-      mayDays: Array,
-      juneDays: Array,
-      julyDays: Array,
-      augustDays: Array,
-      septemberDays: Array,
-      octoberDays: Array,
-      novemberDays: Array,
-      decemberDays: Array,
+      months: Array,
     },
    
     methods: {
@@ -123,29 +112,33 @@ import { getLocations, setLocations } from '../db/storage.js';
 
     <div id="carouselCalendar" class="carousel carousel-dark slide">
       <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div
+          v-for="(month, index) in months"
+          :key="month.name"
+          :class="['carousel-item', { active: index === 0 }]"
+        >
           <div class="row gy-4">
-            <h3 class="text-danger">Settembre</h3>
-            <div v-for="septemberDay in septemberDays" class="col-3 col-sm-2">
+            <h3 class="text-danger">{{ month.name }}</h3>
+            <div v-for="day in month.days" class="col-3 col-sm-2">
               <div 
                 class="card"
-                :class="{ active: isActive(septemberDay) }"
-                @click="isActive(septemberDay) && showModal(septemberDay)"
+                :class="{ active: isActive(day) }"
+                @click="isActive(day) && showModal(day)"
               >
-                <p>{{ septemberDay.dayNumber }}</p>
-                <p>{{ septemberDay.dayName }}</p>
+                <p>{{ day.dayNumber }}</p>
+                <p>{{ day.dayName }}</p>
               </div>
               <div class="text-center mt-1">
-                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(septemberDay)">
+                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(day)">
                   <i class="fa-solid fa-plus"></i>
                 </button>
                 <!-- Modal -->
-                <div class="modal fade" :id="`modal-${septemberDay.dayNumber}-${septemberDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" :id="`modal-${day.dayNumber}-${day.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">
-                          {{ septemberDay.dayNumber }}/{{ septemberDay.month }}/{{ septemberDay.year }}
+                          {{ day.dayNumber }}/{{ day.month }}/{{ day.year }}
                         </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
@@ -154,7 +147,7 @@ import { getLocations, setLocations } from '../db/storage.js';
                         <table class="table table-bordered">
                           <thead class="table-primary">
                             <tr>
-                              <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${septemberDay.dayNumber}-${septemberDay.month}`).date }}</th>
+                              <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${day.dayNumber}-${day.month}`).date }}</th>
                             </tr>
                             <tr>
                               <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th> -->
@@ -167,16 +160,16 @@ import { getLocations, setLocations } from '../db/storage.js';
                             </tr>
                           </thead>      
                           <tbody>
-                            <tr v-for="stage in getLocationForModal(`${septemberDay.dayNumber}-${septemberDay.month}`).stages" :key="stage.name">
+                            <tr v-for="stage in getLocationForModal(`${day.dayNumber}-${day.month}`).stages" :key="stage.name">
                               <td>{{ stage.name }}</td>
                               <td>{{ stage.description }}</td>
                               <td>
-                                <button class="btn btn-warning" @click="showEditModal(stage, septemberDay)">
+                                <button class="btn btn-warning" @click="showEditModal(stage, day)">
                                   <i class="fa-solid fa-pen"></i>
                                 </button>
                               </td>
                               <td class="text-center">
-                                <button class="btn btn-danger" @click="deleteStage(stage.name, septemberDay)">
+                                <button class="btn btn-danger" @click="deleteStage(stage.name, day)">
                                  <i class="fa-solid fa-trash-can"></i>
                                 </button>
                               </td>
@@ -195,224 +188,6 @@ import { getLocations, setLocations } from '../db/storage.js';
           </div>     
         </div>
 
-        <div class="carousel-item">
-          <div class="row gy-4">
-            <h3 class="text-danger">Giugno</h3>
-            <div v-for="juneDay in juneDays" class="col-3 col-sm-2">
-              <div 
-                class="card"
-                :class="{ active: isActive(juneDay) }"
-                @click="isActive(juneDay) && showModal(juneDay)"
-              >
-                <p>{{ juneDay.dayNumber }}</p>
-                <p>{{ juneDay.dayName }}</p>
-              </div>
-              <div class="text-center mt-1">
-                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(juneDay)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" :id="`modal-${juneDay.dayNumber}-${juneDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                          {{ juneDay.dayNumber }}/{{ juneDay.month }}/{{ juneDay.year }}
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- Table content -->
-                        <table class="table table-bordered">
-                          <thead class="table-primary">
-                            <tr>
-                              <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).date }}</th>
-                            </tr>
-                            <tr>
-                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th> -->
-                            </tr>
-                            <tr>
-                              <th scope="col" style="width: 200px;" class="text-light">Nome</th>
-                              <th scope="col" class="text-light">Descrizione</th>
-                              <th scope="col" class="text-light">Modifica</th>
-                              <th scope="col" class="text-light">Cancella</th>
-                            </tr>
-                          </thead>      
-                          <tbody>
-                            <tr v-for="stage in getLocationForModal(`${juneDay.dayNumber}-${juneDay.month}`).stages" :key="stage.name">
-                              <td>{{ stage.name }}</td>
-                              <td>{{ stage.description }}</td>
-                              <td>
-                                <button class="btn btn-warning" @click="showEditModal(stage, juneDay)">
-                                  <i class="fa-solid fa-pen"></i>
-                                </button>
-                              </td>
-                              <td class="text-center">
-                                <button class="btn btn-danger" @click="deleteStage(stage.name, juneDay)">
-                                 <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>                      
-              </div>
-            </div>
-          </div>     
-        </div>
-
-        <div class="carousel-item">
-          <div class="row gy-4">
-            <h3 class="text-danger">Luglio</h3>
-            <div v-for="julyDay in julyDays" class="col-3 col-sm-2">
-              <div class="card"
-                :class="{ active: isActive(julyDay) }"
-                @click="isActive(julyDay) && showModal(julyDay)"
-              >
-                <p>{{ julyDay.dayNumber }}</p>
-                <p>{{ julyDay.dayName }}</p>
-              </div>
-              <div class="text-center mt-1">
-                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(julyDay)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>      
-                <!-- Modal -->
-                <div class="modal fade" :id="`modal-${julyDay.dayNumber}-${julyDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                          {{ julyDay.dayNumber }}/{{ julyDay.month }}/{{ julyDay.year }}
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- Table content -->
-                        <table class="table table-bordered">
-                          <thead class="table-primary">
-                            <tr>
-                              <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).date }}</th>
-                            </tr>
-                            <tr>
-                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ julyDay.dayNumber }}-{{ julyDay.month }}</th> -->
-                            </tr>
-                            <tr>
-                              <th scope="col" style="width: 200px;">Nome</th>
-                              <th scope="col">Descrizione</th>
-                              <th scope="col">Modifica</th>
-                              <th scope="col">Cancella</th>
-                            </tr>
-                          </thead>      
-                          <tbody>
-                            <tr v-for="stage in getLocationForModal(`${julyDay.dayNumber}-${julyDay.month}`).stages" :key="stage.name">
-                              <td>{{ stage.name }}</td>
-                              <td>{{ stage.description }}</td>
-                              <td>
-                                <button class="btn btn-warning" @click="showEditModal(stage, julyDay)">
-                                  <i class="fa-solid fa-pen"></i>
-                                </button>
-                              </td>
-                              <td>
-                                <button class="btn btn-danger" @click="deleteStage(stage.name, julyDay)">
-                                 <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>                          
-              </div>
-            </div>
-          </div>   
-        </div>
-
-        <div class="carousel-item">
-          <div class="row gy-4">
-          <h3 class="text-danger">Agosto</h3>
-           <div v-for="augustDay in augustDays" class="col-3 col-sm-2">
-              <div class="card"
-                :class="{ active: isActive(augustDay) }"
-                @click="isActive(augustDay) && showModal(augustDay)"
-              >
-                <p>
-                  {{ augustDay.dayNumber }}
-                </p>
-                <p>
-                  {{ augustDay.dayName }}
-                </p>
-              </div>
-              <div class="text-center mt-1">
-                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(augustDay)">
-                  <i class="fa-solid fa-plus"></i>
-                </button>                
-                <!-- Modal -->
-                <div class="modal fade" :id="`modal-${augustDay.dayNumber}-${augustDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                          {{ augustDay.dayNumber }}/{{ augustDay.month }}/{{ augustDay.year }}
-                        </h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <!-- Table content -->
-                        <table class="table table-bordered">
-                          <thead class="table-primary">
-                            <tr>
-                              <th scope="col" colspan="5" class="text-center">{{ getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).date }}</th>
-                            </tr>
-                            <tr>
-                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ augustDay.dayNumber }}-{{ augustDay.month }}</th> -->
-                            </tr>
-                            <tr>
-                              <th scope="col" style="width: 200px;">Nome</th>
-                              <th scope="col">Descrizione</th>
-                              <th scope="col">Modifica</th>
-                              <th scope="col">Cancella</th>
-                            </tr>
-                          </thead>      
-                          <tbody>
-                            <tr v-for="stage in getLocationForModal(`${augustDay.dayNumber}-${augustDay.month}`).stages" :key="stage.name">
-                              <td>{{ stage.name }}</td>
-                              <td>{{ stage.description }}</td>
-                              <td>
-                                <button class="btn btn-warning" @click="showEditModal(stage, augustDay)">
-                                  <i class="fa-solid fa-pen"></i>
-                                </button>
-                              </td>
-                              <td>
-                                <button class="btn btn-danger" @click="deleteStage(stage.name, augustDay)">
-                                 <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselCalendar" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
