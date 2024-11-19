@@ -418,18 +418,18 @@ import { getLocations, setLocations } from '../db/storage.js';
     width: 32px;
   }
 
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    position: absolute;
+    top: 0;
+    background-color: red;
+  }
+
+
   @media screen and (max-width: 480px) { 
     button {
       transform: scale(0.7);
     }
 
-    .carousel-control-prev-icon {
-      background-color: red;
-    }
-    
-    .carousel-control-next-icon {
-      background-color: red;
-    }
   }
 
 

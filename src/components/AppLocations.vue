@@ -131,6 +131,11 @@ export default {
       width: 32px;
     }
 
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      background-color: red;
+    }
+
+
     table {
       margin-bottom: 0;
     }
