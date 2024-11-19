@@ -140,4 +140,16 @@ export default {
       margin-bottom: 0;
     }
 
+
+    @media screen and (max-width: 768px) { 
+      .carousel-item {
+        padding: 0 1rem;
+      }
+
+      .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: -17em;
+      }
+    }
+
 </style>

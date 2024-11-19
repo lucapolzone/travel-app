@@ -33,4 +33,14 @@
     margin-bottom: 4rem;
   }
 
+  @media screen and (max-width: 768px) { 
+    header {
+      div {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    } 
+  }
+
+
 </style>

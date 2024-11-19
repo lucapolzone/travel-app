@@ -188,7 +188,7 @@ import { getLocations, setLocations } from '../db/storage.js';
         <div class="carousel-item">
           <div class="row gy-4">
             <h3 class="text-danger">Luglio</h3>
-            <div v-for="julyDay in julyDays" class="col-2">
+            <div v-for="julyDay in julyDays" class="col-3 col-sm-2">
               <div class="card"
                 :class="{ active: isActive(julyDay) }"
                 @click="isActive(julyDay) && showModal(julyDay)"
@@ -258,7 +258,7 @@ import { getLocations, setLocations } from '../db/storage.js';
         <div class="carousel-item">
           <div class="row gy-4">
           <h3 class="text-danger">Agosto</h3>
-           <div v-for="augustDay in augustDays" class="col-2">
+           <div v-for="augustDay in augustDays" class="col-3 col-sm-2">
               <div class="card"
                 :class="{ active: isActive(augustDay) }"
                 @click="isActive(augustDay) && showModal(augustDay)"
@@ -428,6 +428,10 @@ import { getLocations, setLocations } from '../db/storage.js';
   @media screen and (max-width: 480px) { 
     button {
       transform: scale(0.7);
+    }
+    
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      top: -16rem;
     }
 
   }
