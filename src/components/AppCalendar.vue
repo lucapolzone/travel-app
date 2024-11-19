@@ -13,9 +13,18 @@ import { getLocations, setLocations } from '../db/storage.js';
     },
 
     props: {
+      januaryDays: Array,
+      februaryDays: Array,
+      marchDays: Array,
+      aprilDays: Array,
+      mayDays: Array,
       juneDays: Array,
       julyDays: Array,
       augustDays: Array,
+      septemberDays: Array,
+      octoberDays: Array,
+      novemberDays: Array,
+      decemberDays: Array,
     },
    
     methods: {
@@ -116,6 +125,78 @@ import { getLocations, setLocations } from '../db/storage.js';
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row gy-4">
+            <h3 class="text-danger">Settembre</h3>
+            <div v-for="septemberDay in septemberDays" class="col-3 col-sm-2">
+              <div 
+                class="card"
+                :class="{ active: isActive(septemberDay) }"
+                @click="isActive(septemberDay) && showModal(septemberDay)"
+              >
+                <p>{{ septemberDay.dayNumber }}</p>
+                <p>{{ septemberDay.dayName }}</p>
+              </div>
+              <div class="text-center mt-1">
+                <button type="button" class="btn btn-success rounded-circle" @click="goToLocationAndActiveCard(septemberDay)">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" :id="`modal-${septemberDay.dayNumber}-${septemberDay.month}`" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          {{ septemberDay.dayNumber }}/{{ septemberDay.month }}/{{ septemberDay.year }}
+                        </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Table content -->
+                        <table class="table table-bordered">
+                          <thead class="table-primary">
+                            <tr>
+                              <th scope="col" colspan="5" class="text-center text-light">{{ getLocationForModal(`${septemberDay.dayNumber}-${septemberDay.month}`).date }}</th>
+                            </tr>
+                            <tr>
+                              <!-- <th scope="col" colspan="5" class="text-center text-danger">{{ juneDay.dayNumber }}-{{ juneDay.month }}</th> -->
+                            </tr>
+                            <tr>
+                              <th scope="col" style="width: 200px;" class="text-light">Nome</th>
+                              <th scope="col" class="text-light">Descrizione</th>
+                              <th scope="col" class="text-light">Modifica</th>
+                              <th scope="col" class="text-light">Cancella</th>
+                            </tr>
+                          </thead>      
+                          <tbody>
+                            <tr v-for="stage in getLocationForModal(`${septemberDay.dayNumber}-${septemberDay.month}`).stages" :key="stage.name">
+                              <td>{{ stage.name }}</td>
+                              <td>{{ stage.description }}</td>
+                              <td>
+                                <button class="btn btn-warning" @click="showEditModal(stage, septemberDay)">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                              <td class="text-center">
+                                <button class="btn btn-danger" @click="deleteStage(stage.name, septemberDay)">
+                                 <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="w-auto btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>                      
+              </div>
+            </div>
+          </div>     
+        </div>
+
+        <div class="carousel-item">
+          <div class="row gy-4">
             <h3 class="text-danger">Giugno</h3>
             <div v-for="juneDay in juneDays" class="col-3 col-sm-2">
               <div 
@@ -185,6 +266,7 @@ import { getLocations, setLocations } from '../db/storage.js';
             </div>
           </div>     
         </div>
+
         <div class="carousel-item">
           <div class="row gy-4">
             <h3 class="text-danger">Luglio</h3>
@@ -255,6 +337,7 @@ import { getLocations, setLocations } from '../db/storage.js';
             </div>
           </div>   
         </div>
+
         <div class="carousel-item">
           <div class="row gy-4">
           <h3 class="text-danger">Agosto</h3>
