@@ -2,3 +2,9 @@
   --bs-border-width: 2px;
   --bs-table-bg: var(--bs-primary);
 }
+@media screen and (max-width: 480px) { 
+
+  .table > :not(caption) > * > * {
+    padding: .5rem .1rem !important;
+  }
+}
