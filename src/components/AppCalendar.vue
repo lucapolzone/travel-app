@@ -422,6 +422,14 @@ import { getLocations, setLocations } from '../db/storage.js';
     button {
       transform: scale(0.7);
     }
+
+    .carousel-control-prev-icon {
+      background-color: red;
+    }
+    
+    .carousel-control-next-icon {
+      background-color: red;
+    }
   }
 
 

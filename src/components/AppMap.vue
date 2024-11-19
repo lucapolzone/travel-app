@@ -12,16 +12,6 @@ export default {
     };
   },
 
-  // `created()` viene eseguito quando il componente viene creato
-  created() {
-    // Puoi gestire l'inizializzazione di variabili o dati qui se necessario
-  },
-
-  // `mounted()` viene eseguito quando il componente è montato nel DOM
-  mounted() {
-    this.initMap();
-  },
-
   // `methods` per definire le funzioni del componente
   methods: {
     // Inizializza la mappa quando il componente è montato
@@ -67,6 +57,16 @@ export default {
       const stages = locations.flatMap(locationGroup => locationGroup.stages.map(stage => ({ name: stage.name })));
       return stages;
     }
+  },
+
+  // `created()` viene eseguito quando il componente viene creato
+  created() {
+    // Puoi gestire l'inizializzazione di variabili o dati qui se necessario
+  },
+
+  // `mounted()` viene eseguito quando il componente è montato nel DOM
+  mounted() {
+    this.initMap();
   },
 };
 </script>
